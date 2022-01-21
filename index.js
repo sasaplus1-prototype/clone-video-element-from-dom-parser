@@ -84,7 +84,9 @@ document.body.appendChild(document.createElement('br'));
 div6.insertAdjacentHTML('beforebegin', video6.outerHTML);
 div6.remove();
 
-//------------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
+ * Fight for CSP
+ * -------------------------------------------------------------------------- */
 
 const video7 = createVideo();
 const videoElement7 = document.createElement('video');
@@ -127,6 +129,29 @@ for (let i = 0, len = attributes8.length; i < len; i += 1) {
 videoElement8.append(...video8.childNodes);
 
 document.body.appendChild(videoElement8);
+document.body.appendChild(document.createElement('br'));
+
+//------------------------------------------------------------------------------
+
+const video9 = createVideo();
+const videoElement9 = document.createElement('video');
+
+const attributes9 = video9.attributes;
+
+for (let i = 0, len = attributes9.length; i < len; i += 1) {
+  const name = attributes9[i].name;
+  const value = attributes9[i].value;
+
+  if (name in videoElement9) {
+    videoElement9[name] = (typeof videoElement9[name] === 'boolean') ? true : value;
+  } else {
+    videoElement9.setAttribute(name, value);
+  }
+}
+
+videoElement9.append(...video9.childNodes);
+
+document.body.appendChild(videoElement9);
 document.body.appendChild(document.createElement('br'));
 
 //------------------------------------------------------------------------------
