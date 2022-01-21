@@ -86,6 +86,51 @@ div6.remove();
 
 //------------------------------------------------------------------------------
 
+const video7 = createVideo();
+const videoElement7 = document.createElement('video');
+
+const attributes7 = video7.attributes;
+
+const videoProto = HTMLVideoElement.prototype;
+
+for (let i = 0, len = attributes7.length; i < len; i += 1) {
+  const name = attributes7[i].name;
+  const value = attributes7[i].value;
+
+  if (name in videoProto) {
+    videoElement7[name] = value === '' ? name : value;
+  } else {
+    // data-*, etc.
+    videoElement7.setAttribute(name, value);
+  }
+}
+
+videoElement7.append(...video7.childNodes);
+
+document.body.appendChild(videoElement7);
+document.body.appendChild(document.createElement('br'));
+
+//------------------------------------------------------------------------------
+
+const video8 = createVideo();
+const videoElement8 = document.createElement('video');
+
+const attributes8 = video8.attributes;
+
+for (let i = 0, len = attributes8.length; i < len; i += 1) {
+  const name = attributes8[i].name;
+  const value = attributes8[i].value;
+
+  videoElement8.setAttribute(name, value === '' ? name : value);
+}
+
+videoElement8.append(...video8.childNodes);
+
+document.body.appendChild(videoElement8);
+document.body.appendChild(document.createElement('br'));
+
+//------------------------------------------------------------------------------
+
 const videos = document.querySelectorAll('video');
 
 for (let i = 0, len = videos.length; i < len; i += 1) {
