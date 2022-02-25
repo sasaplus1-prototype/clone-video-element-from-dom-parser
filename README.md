@@ -5,6 +5,7 @@ clone video element from DOMParser
 ## Related
 
 - https://stackoverflow.com/q/58240755
+- https://bugs.webkit.org/show_bug.cgi?id=222657
 
 ## License
 
